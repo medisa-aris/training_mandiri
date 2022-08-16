@@ -1,0 +1,48 @@
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style>
+
+<header>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</header>
+
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
+
+<header>
+    <h1>Data from retail_db: Categories</h1>
+</header>
+
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Department ID</th>
+      <th>Name</th>
+    </tr>
+{% for cat in categories %}
+    <tr>
+        <th>{{ cat.category_id}}</th>
+        <th>{{ cat.category_department_id}}</th>
+        <th>{{ cat.category_name}}</th>
+    </tr>
+{% endfor %}
+</table>
